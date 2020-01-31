@@ -5,7 +5,7 @@ module.exports = {
     password: '123456',
     database: 'fastfeet',
     define: {
-        timestamp: true,
+        timestamps: true,
         underscored: true,
         underscoredAll: true,
     },
