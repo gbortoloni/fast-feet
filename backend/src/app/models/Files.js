@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-class File extends Model {
+class Files extends Model {
     static init(sequelize) {
         super.init(
             {
@@ -13,11 +13,11 @@ class File extends Model {
                     },
                 },
             },
-            { sequelize }
+            { freezeTableName: true, sequelize }
         );
 
         return this;
     }
 }
 
-export default File;
+export default Files;

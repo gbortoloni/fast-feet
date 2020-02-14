@@ -1,10 +1,10 @@
 import * as Yup from 'yup';
 
-import Recipient from '../models/Recipient';
+import Recipients from '../models/Recipients';
 
 class RecipientController {
     async index(req, res) {
-        const recipients = await Recipient.findAll();
+        const recipients = await Recipients.findAll();
 
         return res.json(recipients);
     }
@@ -36,7 +36,7 @@ class RecipientController {
             estado,
             cidade,
             cep,
-        } = await Recipient.create(req.body);
+        } = await Recipients.create(req.body);
 
         return res.json({
             id,
@@ -69,7 +69,7 @@ class RecipientController {
 
         const { id } = req.params;
 
-        const recipient = await Recipient.findByPk(id);
+        const recipient = await Recipients.findByPk(id);
 
         if (!recipient) {
             return res.status(401).json({ error: 'Recipient does not exists' });

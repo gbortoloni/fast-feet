@@ -7,7 +7,7 @@ class Deliverymen extends Model {
                 name: Sequelize.STRING,
                 email: Sequelize.STRING,
             },
-            { sequelize }
+            { freezeTableName: true, sequelize }
         );
 
         return this;

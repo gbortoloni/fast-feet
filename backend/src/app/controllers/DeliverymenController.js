@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-import File from '../models/File';
+import Files from '../models/Files';
 import Deliverymen from '../models/Deliverymen';
 
 class DeliverymenController {
@@ -9,7 +9,7 @@ class DeliverymenController {
             attributes: ['id', 'name', 'email', 'avatar_id'],
             include: [
                 {
-                    model: File,
+                    model: Files,
                     as: 'avatar',
                     attributes: ['name', 'path', 'url'],
                 },
