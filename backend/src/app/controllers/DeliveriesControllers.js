@@ -5,6 +5,9 @@ import Deliverymen from '../models/Deliverymen';
 import Recipients from '../models/Recipients';
 import Files from '../models/Files';
 
+import NotificationDeliveryMail from '../jobs/NotificationDeliveryMail';
+import Queue from '../../lib/Queue';
+
 class DeliverymenController {
     async index(req, res) {
         const deliveries = await Deliveries.findAll({
@@ -78,7 +81,21 @@ class DeliverymenController {
 
         const delivery = await Deliveries.create(req.body);
 
-        return res.json(delivery);
+        const deliveryMail = await Deliveries.findByPk(delivery.id, {
+            include: [
+                {
+                    model: Deliverymen,
+                    as: 'deliveryman',
+                    attributes: ['id', 'name', 'email'],
+                },
+            ],
+        });
+
+        await Queue.add(NotificationDeliveryMail.key, {
+            deliveryMail,
+        });
+
+        return res.json(deliveryMail);
     }
 
     async update(req, res) {
