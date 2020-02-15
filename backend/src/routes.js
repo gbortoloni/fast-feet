@@ -10,6 +10,7 @@ import DeliveriesControllers from './app/controllers/DeliveriesControllers';
 import MyDeliveryController from './app/controllers/MyDeliveryController';
 import MyDeliveryDoneController from './app/controllers/MyDeliveryDoneController';
 import IniciateDeliveryController from './app/controllers/IniciateDeliveryController';
+import FinalizeDeliveryController from './app/controllers/FinalizeDeliveryController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -23,6 +24,10 @@ routes.get('/deliveryman/:id/deliveries/done', MyDeliveryDoneController.index);
 routes.put(
     '/deliveryman/:id/deliveries/:delivery_id',
     IniciateDeliveryController.update
+);
+routes.put(
+    '/deliveryman/:id/deliveries/:delivery_id/done',
+    FinalizeDeliveryController.update
 );
 
 routes.use(authMiddleware);
