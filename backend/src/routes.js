@@ -11,6 +11,8 @@ import MyDeliveryController from './app/controllers/MyDeliveryController';
 import MyDeliveryDoneController from './app/controllers/MyDeliveryDoneController';
 import IniciateDeliveryController from './app/controllers/IniciateDeliveryController';
 import FinalizeDeliveryController from './app/controllers/FinalizeDeliveryController';
+import DistributorController from './app/controllers/DistributorController';
+import DeliveryProblemController from './app/controllers/DeliveryProblemController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -29,6 +31,12 @@ routes.put(
     '/deliveryman/:id/deliveries/:delivery_id/done',
     FinalizeDeliveryController.update
 );
+
+routes.get('/delivery/problems', DistributorController.index);
+routes.get('/delivery/:id/problems', DistributorController.show);
+routes.post('/delivery/:id/problems', DeliveryProblemController.store);
+
+routes.delete('/problem/:id/cancel-delivery', DistributorController.delete);
 
 routes.use(authMiddleware);
 
