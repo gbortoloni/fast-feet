@@ -4,13 +4,11 @@ updates:
     directory: "/" #*
     schedule: #*
       interval: daily
+      time: "10:35"
+      timezone: -03:00 UTC
 
     target-branch: master
     open-pull-requests-limit: 5
     rebase-strategy: auto
-    commit-message:
-        prefix: "build(DEPENDABOT):"
-        prefix-development: "build(DEPENDABOT-DEV):"
-        include: scope
     reviewers:
       - "gbortoloni"
