@@ -4,7 +4,7 @@ updates:
     directory: "/" #*
     schedule: #*
       interval: daily
-      time: "10:38"
+      time: "10:35"
       timezone: -03:00 UTC
 
     target-branch: master
