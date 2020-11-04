@@ -5,7 +5,7 @@ updates:
     schedule: #*
       interval: daily
       time: "10:38"
-      timezone: -03:00 UTC
+      timezone: "Brazil/East"
 
     target-branch: master
     open-pull-requests-limit: 5
