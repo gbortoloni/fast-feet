@@ -4,8 +4,8 @@ updates:
     directory: "/" #*
     schedule: #*
       interval: daily
-      time: "10:35"
-      timezone: -03:00 UTC
+      time: "10:43"
+      timezone: Brazil/East
 
     target-branch: master
     open-pull-requests-limit: 5
