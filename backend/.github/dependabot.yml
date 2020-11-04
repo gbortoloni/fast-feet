@@ -8,9 +8,5 @@ updates:
     target-branch: master
     open-pull-requests-limit: 5
     rebase-strategy: auto
-    commit-message:
-        prefix: "build(DEPENDABOT):"
-        prefix-development: "build(DEPENDABOT-DEV):"
-        include: scope
     reviewers:
       - "gbortoloni"
